@@ -15,15 +15,16 @@ class db():
                             DATABASE=CONTACT_CENTER; 
                             UID=antony; 
                             PWD=antony""")
-        print("se conecto")
+        #print("se conecto")
         self.cursor = self.conec.cursor()
         self.conec.commit()
 
     def insert(self,id,usu,cli,dni,tel,dis,dir,cla,nro_cla,fecha,ref,blo,base,comen,obs):
+        print(id,usu,cli,dni,tel,dis,dir,cla,nro_cla,fecha,ref,blo,base,comen,obs)
         self.cursor.execute("""insert into prueba
                             (ID,USUARIO,CLIENTE,DNI,TELEFONO,DISTRITO,DIRECCION,CLASIFICACION,NRO_CLASIFICACION,FECHA,REFERIDO,BLOQUEADO,BASE_ADMI,COMENTARIOS_ADMI,OBSERVACIONES_USU) 
                             values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
-                            (id,usu,cli,dni,tel,"dis","dir",cla,nro_cla,fecha,ref,blo,base,comen,"obs"))
+                            (id,usu,cli,dni,tel,dis,dir,cla,nro_cla,fecha,ref,blo,base,comen,obs))
         self.conec.commit()  
         
 
